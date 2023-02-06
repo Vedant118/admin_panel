@@ -1,77 +1,40 @@
-import React, { useEffect, useState } from "react";
-import {
-  Box,
-  Card,
-  Grid,
-  CardHeader,
-  CardContent,
-  Avatar,
-  Button,
-  CircularProgress,
-} from "@material-ui/core";
-import { useStyles } from "./BodyStyles";
-import { PageHeader } from "../Common/CommonComponent";
-import { GetPost } from "../../utils/blogRequest";
-import { Typography } from "@material-ui/core";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+import React from "react";
+import Table from 'react-bootstrap/Table';
+import LandlordData from '../BodyComponent/Landlord_Data.json';
+
 
 export default function BlogComponent() {
-  const classes = useStyles();
-  const [fetched, setfetched] = useState(false);
-  const [posts, setPosts] = useState([]);
-
-  //calling getpost api
-  useEffect(() => {
-    if (!fetched) {
-      GetPost({ limit: 24 }).then(({ data: { data } }) => {
-        setPosts(data);
-      });
-      setfetched(true);
-    }
-  }, [fetched]);
   return (
-    <Box>
-      <PageHeader label="" pageTitle="Landlord" />
+    <section>
+          <div>
+      <h1>Landlord Component</h1>
+    </div>
+      <Table striped bordered hover variant="dark">
+        <thead>
+        <tr>
+          <th>Landlord_ID</th>
+          <th>Landlord_Name</th>
+          <th>Location</th>
+          <th>Rate</th>
+          <th>Create</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            {LandlordData.LandlordData.map((LandlordData) => {
+              return <tr>
+                <td>{LandlordData.Landlord_ID}</td>
+                <td>{LandlordData.Landlord_Name}</td>
+                <td>{LandlordData.Location}</td>
+                <td>{LandlordData.Rate}</td>
+                <td>{LandlordData.Create}</td>
+                <td>{LandlordData.Action}</td>
+              </tr>
 
-      <Grid container spacing={1}>
-        {posts.length === 0 ? (
-          <Box p={3} style={{ width: "100%", textAlign: "center" }}>
-            <CircularProgress />
-          </Box>
-        ) : (
-          posts.map((item, i) => (
-            <Grid key={i} item xs={12} sm={4}>
-              <Card>
-                <CardHeader
-                  avatar={
-                    <Avatar aria-label="recipe" src={item.owner.picture} />
-                  }
-                  title={item.owner.firstName}
-                />
-                <img
-                  alt={item.text}
-                  src={item.image}
-                  className={` ${classes.responsiveImg} ${classes.cardImage}`}
-                />
-                <CardContent>
-                  <Typography variant="body1" color="textSecondary">
-                    {item.text}
-                  </Typography>
-                </CardContent>
-                <CardContent>
-                  <Button
-                    size="small"
-                    color="secondary"
-                    startIcon={<FavoriteIcon />}
-                  >
-                    {item.likes}
-                  </Button>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))
-        )}
-      </Grid>
-    </Box>
+})}
+
+        </tbody>
+      </Table>
+    </section>
   );
 }

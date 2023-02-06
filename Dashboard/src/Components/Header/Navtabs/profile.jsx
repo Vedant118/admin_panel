@@ -13,6 +13,7 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import image from "./unnamed.jpg";
 import { useStyles } from "../HeaderStyles";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const classes = useStyles();
@@ -28,8 +29,8 @@ export default function Profile() {
   const dropDownData = [
     { label: "settings", icon: <SettingsIcon /> },
     { label: "Logout", icon: <ExitToAppIcon /> },
+    { label: "Signin", icon: <ExitToAppIcon /> },
   ];
-
   return (
     <Box>
       <Button
