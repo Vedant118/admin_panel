@@ -1,9 +1,11 @@
 import React from "react";
 import Table from 'react-bootstrap/Table';
-import LandlordData from '../BodyComponent/Landlord_Data.json';
+import LandlordData from './Landlord_Data.json';
 
 
-export default function BlogComponent() {
+export default function Landlord() {
+   
+
   return (
     <section>
           <div>

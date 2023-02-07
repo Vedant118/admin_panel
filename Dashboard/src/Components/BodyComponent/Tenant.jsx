@@ -1,6 +1,6 @@
 import React from "react";
 import Table from 'react-bootstrap/Table';
-import Tenant from '../BodyComponent/TenantData.json';
+import Tenant from './TenantData.json';
 
 
 export default function Link() {

@@ -4,12 +4,14 @@ import Navbar from "./Navbar";
 import Sidenav from "./Sidenav";
 import { Switch, Route } from "react-router-dom";
 import Dashboard from "../BodyComponent/Dashboard/Dashboard";
-import BlogComponent from "../BodyComponent/BlogComponent";
-import Link from "../BodyComponent/Link";
-import Notification from "../BodyComponent/Notification";
+import Landloard from "../BodyComponent/Landloard";
+import Tenant from "../BodyComponent/Tenant";
+import Repairer from "../BodyComponent/Repairer";
+import Property from "../BodyComponent/Property";
 import Logout from "../BodyComponent/Logout";
 import { useStyles } from "./HeaderStyles";
 import Signin from "../BodyComponent/Signin";
+
 
 export default function HeaderComponent() {
   const classes = useStyles();
@@ -33,9 +35,10 @@ export default function HeaderComponent() {
       <Box className={classes.wrapper}>
         <Switch>
           {/* <Route path='/' component={<Dashboard />} /> */}
-          <Route exact path="/blog" render={() => <BlogComponent />} />
-          <Route exact path="/link" render={() => <Link />} />
-          <Route exact path="/notification" render={() => <Notification />} />
+          <Route exact path="/Landloard" render={() => <Landloard />} />
+          <Route exact path="/Tenant" render={() => <Tenant />} />
+          <Route exact path="/Repairer" render={() => <Repairer />} />
+          <Route exact path="/Property" render={() => <Property />} />
           <Route exact path="/logout" render={() => <Logout />} />
           <Route exact path="/" render={() => <Dashboard />} />
           <Route exact path="/Signin" render={() => <Signin />} />

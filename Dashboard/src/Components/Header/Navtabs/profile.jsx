@@ -13,7 +13,7 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import image from "./unnamed.jpg";
 import { useStyles } from "../HeaderStyles";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 export default function Profile() {
   const classes = useStyles();
